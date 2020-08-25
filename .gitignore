@@ -141,3 +141,4 @@ cython_debug/
 
 #config script for env vars
 run_config.sh
+run_deploy.sh

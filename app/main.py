@@ -15,7 +15,7 @@ security = HTTPBasic()
 
 # test route----
 @app.get("/test_prediction/{user_input}")
-def read_root(user_input):
+def test_prediction(user_input):
     try:
         return {"prediction_data": predictions_handler.get_prediction(int(user_input))}
     except Exception as e:
@@ -23,6 +23,7 @@ def read_root(user_input):
 
 
 # actual route
+
 # @app.post("/send_file/")
 # async def create_upload_file(user_uploaded_file: UploadFile = File(...)):
 #     contents = await user_uploaded_file.read()
@@ -35,8 +36,7 @@ def read_root(user_input):
 
 @manager.user_loader
 def load_user(user_name: str, password: str):
-    user = users.find_one(
-        {'username': user_name, "password": password})
+    user = users.find_one({'username': user_name, "password": password})
     return user
 
 
