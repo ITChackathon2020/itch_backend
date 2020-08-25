@@ -1,5 +1,7 @@
 # itch_backend
 
+`PYTHON 3.7.2`
+
 # environment/package management
 
 1. <code>\$ virtualenv myenv </code>
@@ -27,3 +29,15 @@
 # run app locally (without docker)
 
 <code>\$ uvicorn main:app --reload</code>
+
+# Test model-->
+
+- once get `get_predictions` in `predictions_handler.py` is good to go and uncomment the commented lines
+- `virtual_env` is activated with all DS packages for model installed
+- `test_imgs` directory populated
+
+  ### in terminal from root proj directory run
+
+  ## <code>\$ sh model_test.sh</code>
+
+  # DO NOT FORGET TO PIP FREEZE AND COMMIT TO SEPARATE BRANCH
