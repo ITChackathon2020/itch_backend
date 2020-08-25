@@ -12,6 +12,7 @@ if __name__ == "__main__":
         with os.scandir('data/test_imgs') as images:
             for image in images:
                 print(image.name)
+                open(image)
 
                 # 1. load up test_imgs directory with images
                 # 2. uncomment prediction lines below once everything is set up to test
