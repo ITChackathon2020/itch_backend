@@ -13,22 +13,10 @@ security = HTTPBasic()
 
 # unprotected
 
-# test route----
-@app.get("/test_prediction/{user_input}")
-def test_prediction(user_input):
-    try:
-        return {"prediction_data": predictions_handler.get_prediction(int(user_input))}
-    except Exception as e:
-        return {"error": str(e)}
-
-
-# actual route
-
-# @app.post("/send_file/")
-# async def create_upload_file(user_uploaded_file: UploadFile = File(...)):
-#     contents = await user_uploaded_file.read()
-#     predictions = await predictions_handler.get_prediction(user_uploaded_file)
-#     return {"prediction_data": predictions }
+@app.post("/send_image_predict/")
+async def send_image_predict(file: UploadFile = File(...)):
+    contents = await file.read()
+    return {"pred": predictions_handler.get_prediction(contents)}
 
 
 # protected
