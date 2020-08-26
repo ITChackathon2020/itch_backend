@@ -1,4 +1,5 @@
 import os
+import uvicorn
 from fastapi import FastAPI, Depends, Header, File, UploadFile
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi_login import LoginManager
@@ -6,7 +7,9 @@ from fastapi_login.exceptions import InvalidCredentialsException
 from app_data import users
 from data import predictions_handler
 
-app = FastAPI()
+# Initiate app instance
+app = FastAPI(title='ReArt', version='1.0',
+              description='NN Image classification of recyclables')
 manager = LoginManager(os.getenv("SECRET_KEY"), tokenUrl='/auth/token')
 security = HTTPBasic()
 
